@@ -145,6 +145,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define LWL1_BS		  LT(_LWL1, KC_BSPC)
 #define LWL1_END    LT(_LWL1, KC_END)
 #define FN3_BS      LT(_FN3, KC_BSPC)
+#define FN_SPC      LT(_FN, KC_SPC)
 
 // Dual key codes
 // Control codes
@@ -205,7 +206,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define WHLSCR      LGUI(LSFT(KC_3))  // Capture whole screen
 #define PRNTSCR     LGUI(LSFT(KC_4))  // Select screen
 #define PRNTSCRC    LGUI(LSFT(LCTL(KC_4)))  // Select screen copy
-#define NOTIFCENT   HYPR(KC_M)  // Open notification center
 #define MSNCTRL     LCTL(KC_UP)  // Open mission control
 #define CAPS_L      HYPR(KC_TAB)  // Caps lock
 
@@ -228,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
   |   Shift   |     Z     |     X     |     C     |     V     |     B     |     N     |     M     |     ,     |     .     |     /     |   Enter   |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-  |    GUI    |   Shift   |   Ctrl    |   Option  |  Lwr BS   |    GUI    |   Space   |  Rse Spc  |   Left    |   Down    |     Up    |   Right   |
+  |    GUI    |   Shift   |   Ctrl    |   Option  |  Lwr BS   |    GUI    | FN Space  |  Rse Spc  |   Left    |   Down    |     Up    |   Right   |
   '-----------------------------------------------------------------------------------------------------------------------------------------------'
 */ 
 
@@ -236,7 +236,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,     ALT_Q,      SFT_W,      KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_DEL,
     FN_TAB,     ALT_A,      KC_S,       KC_D,       GUI_F,      KC_G,       KC_H,       GUI_J,      KC_K,       KC_L,       KC_SCLN,    SFT_QUOT,
     KC_LSFT,    GUI_Z,      SFT_X,      KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    SFT_ENT,
-    KC_LGUI,    KC_LSFT,    KC_LCTRL,   KC_LALT,    LWR_BS,     FN3_BS,     KC_SPC,     RSE_SPC,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT
+    KC_LGUI,    KC_LSFT,    KC_LCTRL,   KC_LALT,    LWR_BS,     FN3_BS,     FN_SPC,     RSE_SPC,    KC_LEFT,    KC_DOWN,    SFT_UP,     GUI_RGHT
   ),
 
 /* Lower
@@ -245,7 +245,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
   |   LWL0    |   Home    |   Pg Dn   |   Pg Up   |    End    |    BS     |    F4     |    F2     |     4     |     5     |     6     |     +     |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-  |           |   Left    |    Down   |    Up     |   Right   |    ***    |           | NotifCent |     1     |     2     |     3     |   Enter   |
+  |           |   Left    |    Down   |    Up     |   Right   |    ***    |           |           |     1     |     2     |     3     |   Enter   |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
   |           |           |           |           |   Lower   |           |           |   LWL0    |     0     |     .     |     *     |     /     |
   '-----------------------------------------------------------------------------------------------------------------------------------------------'
@@ -254,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LOWER] = LAYOUT_ortho_4x12(
     _______,    TD(LBKTS),  TD(RBKTS),  KC_MINS,    KC_EQL,     KC_NO,      KC_NO,      KC_BSPC,     KC_P7,     KC_P8,      KC_P9,      KC_PMNS,
     LWL0_TAB,   GUI_HOME,   KC_PGDN,    KC_PGUP,    LWL1_END,   KC_BSPC,    KC_F4,      KC_F2,       KC_P4,     KC_P5,      KC_P6,      KC_PPLS,
-    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_NO,      _______,    NOTIFCENT,   KC_P1,     KC_P2,      KC_P3,      KC_PENT,
+    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_NO,      _______,    _______,     KC_P1,     KC_P2,      KC_P3,      KC_PENT,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    LWL0_SPC,    KC_P0,     KC_PDOT,    KC_PAST,    KC_PSLS
   ),
 
@@ -311,7 +311,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RAISE] = LAYOUT_ortho_4x12(
     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,
     KC_EXLM,    TD(EMAIL),  KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS,    KC_PLUS,
-    CAPS_L,     TD(TILDE),  _______,    _______,    _______,    _______,    _______,    _______,    KC_LBRC,    KC_RBRC,    TD(PIPE),    FN2,
+    CAPS_L,     TD(TILDE),  _______,    _______,    _______,    _______,    _______,    _______,    KC_LBRC,    KC_RBRC,    TD(PIPE),   FN2,
     _______,    _______,    _______,    _______,    _______,    _______,    TG(1),      _______,    GUI_MPLY,   ALT_VOLD,   CTL_VOLU,   KC_MUTE
   ),
 
@@ -336,7 +336,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* FN2
   .-----------------------------------------------------------------------------------------------------------------------------------------------.
-  | Bright Up | Bright Dn | Miss Ctrl |           |           |           |  Rewind   |   Play    | Fast Fwd  |   Mute    |  Vol Up   |  Vol Dn   |
+  | Bright Up | Bright Dn | Miss Ctrl |           |           |           |           |           |           |           |           |           |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
   |           | Prnt Scrn | Prt Sel C | Prnt Sel  |           |           |           |           |           |           |           |           |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
@@ -347,7 +347,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */ 
 
   [_FN2] = LAYOUT_ortho_4x12(
-    KC_BRID,    KC_BRIU,    MSNCTRL,    _______,    _______,    _______,    KC_MRWD,    KC_MPLY,    KC_MFFD,    KC_MUTE,    KC_VOLD,    KC_VOLU,
+    KC_BRID,    KC_BRIU,    MSNCTRL,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
     _______,    WHLSCR,     PRNTSCRC,   PRNTSCR,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______ 
@@ -357,7 +357,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   .-----------------------------------------------------------------------------------------------------------------------------------------------.
   |     ~     |  CS Tab   |   C Tab   |   AS Up   |   AS Dn   |           |           |           |           |           |           |           |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-  |   GUI `   |  Del Col  |  Ins Col  |  Del Row  |  Ins Row  |           |           |   Left    |   Down    |    Up     |   Right   |           |
+  |   GUI `   |  Del Col  |  Ins Col  |  Del Row  |  Ins Row  |           |           |           |           |           |           |           |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
   |   CAPS    |           |           |           |           |           |           |   MAKE    |           |           |           |           |
   |-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
@@ -367,7 +367,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FN3] = LAYOUT_ortho_4x12(
     KC_GRAVE,   GA_LEFT,    GA_RIGHT,   ALT_SUP,    ALT_SDN,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
-    GUI_GRV,    DELC,       INSC,       DELR,       INSR,       _______,    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,   _______,
+    GUI_GRV,    DELC,       INSC,       DELR,       INSR,       _______,    _______,    _______,    _______,    _______,    _______,    _______,
     KC_CAPS,    _______,    _______,    _______,    _______,    _______,    _______,    MAKE,       _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______ 
   ) 
@@ -383,11 +383,9 @@ const uint16_t PROGMEM fn_actions[] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case MAKE:
-      if (record->event.pressed) {
-        // when keycode is pressed
+      if (record->event.pressed) { // when keycode is pressed
         SEND_STRING("make therick48:macos:dfu");
-      } else {
-        // when keycode is released
+      } else { // when keycode is released
       }
       break;
 
@@ -440,7 +438,7 @@ static xtap rbkts_state = {
 
 //*************** EMAIL *******************//
 void email_finished (qk_tap_dance_state_t *state, void *user_data) {
-  email_state.state = cur_dance(state); //Use the dance that favors being held
+  email_state.state = cur_dance(state); // Use the dance that favors being held
   switch (email_state.state) {
     case SINGLE_TAP: register_code(KC_LSFT); register_code(KC_2); break; //send @
     case DOUBLE_TAP: SEND_STRING("rick.c.kremer@gmail.com"); break; //send email address
@@ -452,16 +450,16 @@ void email_reset (qk_tap_dance_state_t *state, void *user_data) {
   switch (email_state.state) {
     case SINGLE_TAP: unregister_code(KC_LSFT); unregister_code(KC_2); break; //unregister @
     case DOUBLE_TAP: ; break;
-    case TRIPLE_TAP: ;break;
+    case TRIPLE_TAP: ; break;
   }
   email_state.state = 0;
 }
 //*************** EMAIL *******************//
 
-//*************** BRACKETS *******************//
-//Left brackets 
+//************* BRACKETS ******************//
+// Left brackets 
 void lbkts_finished (qk_tap_dance_state_t *state, void *user_data) {
-  lbkts_state.state = cur_dance(state); //Use the dance that favors being held
+  lbkts_state.state = cur_dance(state); // Use the dance that favors being held
   switch (lbkts_state.state) {
     case SINGLE_TAP: register_code(KC_LSFT); register_code(KC_9); break; // send (
     case DOUBLE_TAP: register_code(KC_LBRC); break; // send [
@@ -478,9 +476,9 @@ void lbkts_reset (qk_tap_dance_state_t *state, void *user_data) {
   lbkts_state.state = 0;
 }
 
-//Right brackets
+// Right brackets
 void rbkts_finished (qk_tap_dance_state_t *state, void *user_data) {
-  rbkts_state.state = cur_dance(state); //Use the dance that favors being held
+  rbkts_state.state = cur_dance(state); // Use the dance that favors being held
   switch (rbkts_state.state) {
     case SINGLE_TAP: register_code(KC_LSFT); register_code(KC_0); break; // send (
     case DOUBLE_TAP: register_code(KC_RBRC); break; // send [
@@ -496,7 +494,7 @@ void rbkts_reset (qk_tap_dance_state_t *state, void *user_data) {
   }
   rbkts_state.state = 0;
 }
-//*************** BRACKETS *******************//
+//************* BRACKETS ******************//
 
 
 
