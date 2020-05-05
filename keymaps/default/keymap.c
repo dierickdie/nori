@@ -100,11 +100,11 @@ int hold_cur_dance (qk_tap_dance_state_t *state) {
 }
 
 // For complex tap dances. Put it here so it can be used in any keymap
-void email_finished (qk_tap_dance_state_t *state, void *user_data);
-void email_reset (qk_tap_dance_state_t *state, void *user_data);
-
 void make_finished (qk_tap_dance_state_t *state, void *user_data);
 void make_reset (qk_tap_dance_state_t *state, void *user_data);
+
+void email_finished (qk_tap_dance_state_t *state, void *user_data);
+void email_reset (qk_tap_dance_state_t *state, void *user_data);
 
 void lbkts_finished (qk_tap_dance_state_t *state, void *user_data);
 void lbkts_reset (qk_tap_dance_state_t *state, void *user_data);
