@@ -350,8 +350,8 @@ static xtap rbkts_state = {
 void make_finished (qk_tap_dance_state_t *state, void *user_data) {
   make_state.state = cur_dance(state); // Use the dance that favors being held
   switch (make_state.state) {
-    case SINGLE_TAP: SEND_STRING("make therick48:dfu"); break; // send therick48 make code
-    case DOUBLE_TAP: SEND_STRING("make nori:default:avrdude"); break; // send nori make code
+    case SINGLE_TAP: SEND_STRING("make nori:default:avrdude"); break; // send nori default make code
+    case DOUBLE_TAP: SEND_STRING("make nori:macos:avrdude"); break; // send nori macos make code
   }
 }
 
