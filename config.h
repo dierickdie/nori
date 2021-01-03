@@ -9,7 +9,7 @@
 #define PRODUCT_ID      0x0A0C
 #define DEVICE_VER      0x4444
 #define MANUFACTURER    di0ib
-#define PRODUCT         Ricks Awesome Nori
+#define PRODUCT         Your Mom
 #define DESCRIPTION     A modular compact keyboard
 
 /* key matrix size */
