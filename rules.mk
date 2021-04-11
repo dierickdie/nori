@@ -56,7 +56,7 @@ BOOTLOADER = caterina
 #   change yes to no to disable
 #
 BOOTMAGIC_ENABLE = no      # Virtual DIP switch configuration(+1000)
-MOUSEKEY_ENABLE = no       # Mouse keys(+4700)
+MOUSEKEY_ENABLE = yes       # Mouse keys(+4700)
 EXTRAKEY_ENABLE = yes       # Audio control and System control(+450)
 CONSOLE_ENABLE = yes        # Console for debug(+400)
 COMMAND_ENABLE = yes        # Commands for debug and configuration
@@ -74,4 +74,4 @@ HD44780_ENABLE = no 		# Enable support for HD44780 based LCDs (+400)
 TAP_DANCE_ENABLE = yes      # Enable Tap Dance
 
 #LAYOUTS = ortho_4x12 planck_mit planck_grid
-LAYOUTS = ortho_4x12
+LAYOUTS = ortho_4x12 ortho_1x4x12 ortho_4x12x1

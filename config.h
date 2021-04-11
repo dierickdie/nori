@@ -14,7 +14,7 @@
 
 /* key matrix size */
 #define MATRIX_ROWS 4
-#define MATRIX_COLS 12
+#define MATRIX_COLS 14
 
 /*
  * Keyboard Matrix Assignments
@@ -28,7 +28,7 @@
 */
 
 #define MATRIX_ROW_PINS { D3, D2, D1, D0 }
-#define MATRIX_COL_PINS { F4, F5, F6, F7, B1, B3, B2, B6, D4, C6, D7, E6 }
+#define MATRIX_COL_PINS { C5, F4, F5, F6, F7, B1, B3, B2, B6, D4, C6, D7, E6, B6 }
 #define UNUSED_PINS
 
 
@@ -42,6 +42,18 @@
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCING_DELAY 5
+
+/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
+#define DEBOUNCING_DELAY 5
+
+/* encoder support */
+#define ENCODERS_PAD_A { D3 }
+#define ENCODERS_PAD_B { D2 }
+
+#define ENCODERS_PAD_C { D1 }
+#define ENCODERS_PAD_D { D0 }
+
+#define ENCODER_RESOLUTION 4
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 //#define MATRIX_HAS_GHOST
